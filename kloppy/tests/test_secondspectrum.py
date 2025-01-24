@@ -30,7 +30,7 @@ class TestSecondSpectrumTracking:
     def test_correct_deserialization(
         self, meta_data: Path, raw_data: Path, additional_meta_data: Path
     ):
-        dataset = secondspectrum.load(
+        dataset = secondspectrum.load_tracking(
             meta_data=meta_data,
             raw_data=raw_data,
             additional_meta_data=additional_meta_data,
@@ -117,7 +117,7 @@ class TestSecondSpectrumTracking:
     def test_correct_normalized_deserialization(
         self, meta_data: Path, raw_data: Path, additional_meta_data: Path
     ):
-        dataset = secondspectrum.load(
+        dataset = secondspectrum.load_tracking(
             meta_data=meta_data,
             raw_data=raw_data,
             additional_meta_data=additional_meta_data,

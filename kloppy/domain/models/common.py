@@ -903,7 +903,10 @@ def build_coordinate_system(
         Provider.WYSCOUT: WyscoutCoordinateSystem,
         Provider.SKILLCORNER: SkillCornerCoordinateSystem,
         Provider.DATAFACTORY: DatafactoryCoordinateSystem,
-        Provider.SECONDSPECTRUM: SecondSpectrumCoordinateSystem,
+        Provider.SECONDSPECTRUM: {
+            DatasetType.EVENT: OptaCoordinateSystem,
+            DatasetType.TRACKING: SecondSpectrumCoordinateSystem,
+        },
         Provider.SPORTVU: SportVUCoordinateSystem,
     }
 

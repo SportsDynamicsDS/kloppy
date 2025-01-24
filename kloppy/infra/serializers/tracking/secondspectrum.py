@@ -33,14 +33,14 @@ from .deserializer import TrackingDataDeserializer
 logger = logging.getLogger(__name__)
 
 
-class SecondSpectrumInputs(NamedTuple):
+class SecondSpectrumTrackingDataInputs(NamedTuple):
     meta_data: IO[bytes]
     raw_data: IO[bytes]
     additional_meta_data: Optional[IO[bytes]] = None
 
 
-class SecondSpectrumDeserializer(
-    TrackingDataDeserializer[SecondSpectrumInputs]
+class SecondSpectrumTrackingDataDeserializer(
+    TrackingDataDeserializer[SecondSpectrumTrackingDataInputs]
 ):
     def __init__(
         self,
@@ -117,7 +117,10 @@ class SecondSpectrumDeserializer(
         if "raw_data" not in inputs:
             raise ValueError("Please specify a value for 'raw_data'")
 
-    def deserialize(self, inputs: SecondSpectrumInputs) -> TrackingDataset:
+    def deserialize(
+            self,
+            inputs: SecondSpectrumTrackingDataInputs
+    ) -> TrackingDataset:
         metadata = None
 
         # Handles the XML metadata that contains the pitch dimensions and frame info
